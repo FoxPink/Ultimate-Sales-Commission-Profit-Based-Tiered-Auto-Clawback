@@ -49,7 +49,7 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_commission_root" name="Sales Commission" sequence="20" groups="advanced_sales_commission.group_commission_user"/>
-    <menuitem id="menu_commission_config" name="Configuration" parent="menu_commission_root" sequence="10" groups="advanced_sales_commission.group_commission_manager"/>
-    <menuitem id="menu_commission_plan" name="Commission Plans" parent="menu_commission_config" action="action_commission_plan" sequence="10" groups="advanced_sales_commission.group_commission_manager"/>
+    <menuitem id="menu_commission_root" name="Sales Commission" sequence="20" groups="profit_tiered_commission.group_commission_user"/>
+    <menuitem id="menu_commission_config" name="Configuration" parent="menu_commission_root" sequence="10" groups="profit_tiered_commission.group_commission_manager"/>
+    <menuitem id="menu_commission_plan" name="Commission Plans" parent="menu_commission_config" action="action_commission_plan" sequence="10" groups="profit_tiered_commission.group_commission_manager"/>
 </odoo>

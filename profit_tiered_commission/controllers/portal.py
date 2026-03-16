@@ -18,7 +18,7 @@ class CommissionPortal(http.Controller):
             "clawback": sum(ledgers.filtered(lambda l: l.is_clawback).mapped("commission_amount")),
         }
         return request.render(
-            "advanced_sales_commission.portal_my_commissions",
+            "profit_tiered_commission.portal_my_commissions",
             {
                 "ledgers": ledgers,
                 "amounts": amounts,

@@ -16,7 +16,7 @@ class AccountMove(models.Model):
 
     def action_view_commission_ledgers(self):
         self.ensure_one()
-        action = self.env.ref("advanced_sales_commission.action_commission_ledger").read()[0]
+        action = self.env.ref("profit_tiered_commission.action_commission_ledger").read()[0]
         action["domain"] = [("source_model", "=", "account.move"), ("source_id", "=", self.id)]
         action["context"] = {"default_source_model": "account.move", "default_source_id": self.id}
         return action

@@ -1,6 +1,6 @@
 # Part of YourBrand. See LICENSE file for full copyright and licensing details.
 {
-    "name": "Ultimate Sales Commission: Profit-Based, Tiered & Auto-Clawback",
+    "name": "Profit-Based Tiered Sales Commission",
     "summary": "Eliminate spreadsheet errors with automated, profit-based commission, tiered rewards, and automated clawbacks.",
     "version": "18.0.1.0.0",
     "category": "Sales/Sales",
