@@ -1,0 +1,55 @@
+<odoo>
+    <record id="module_category_commission" model="ir.module.category">
+        <field name="name">Sales Commission</field>
+        <field name="description">Helps you manage sales commissions.</field>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="group_commission_user" model="res.groups">
+        <field name="name">Commission User</field>
+        <field name="category_id" ref="advanced_sales_commission.module_category_commission"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="group_commission_manager" model="res.groups">
+        <field name="name">Commission Manager</field>
+        <field name="category_id" ref="advanced_sales_commission.module_category_commission"/>
+        <field name="implied_ids" eval="[(4, ref('advanced_sales_commission.group_commission_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="commission_ledger_personal_rule" model="ir.rule">
+        <field name="name">Personal Commission Ledger</field>
+        <field name="model_id" ref="model_commission_ledger"/>
+        <field name="domain_force">[('salesperson_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('advanced_sales_commission.group_commission_user'))]"/>
+    </record>
+
+    <record id="commission_ledger_manager_rule" model="ir.rule">
+        <field name="name">All Commission Ledger</field>
+        <field name="model_id" ref="model_commission_ledger"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('advanced_sales_commission.group_commission_manager'))]"/>
+    </record>
+
+    <record id="commission_ledger_portal_rule" model="ir.rule">
+        <field name="name">Portal Own Commission Ledger</field>
+        <field name="model_id" ref="model_commission_ledger"/>
+        <field name="domain_force">[('salesperson_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
+
+    <record id="commission_plan_company_rule" model="ir.rule">
+        <field name="name">Commission Plan by Company</field>
+        <field name="model_id" ref="model_commission_plan"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('advanced_sales_commission.group_commission_user'))]"/>
+    </record>
+
+    <record id="commission_period_company_rule" model="ir.rule">
+        <field name="name">Commission Period by Company</field>
+        <field name="model_id" ref="model_commission_settlement_period"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('advanced_sales_commission.group_commission_user'))]"/>
+    </record>
+</odoo>

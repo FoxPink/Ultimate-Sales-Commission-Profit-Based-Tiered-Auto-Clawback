@@ -1,0 +1,33 @@
+# Part of YourBrand. See LICENSE file for full copyright and licensing details.
+{
+    "name": "Ultimate Sales Commission: Profit-Based, Tiered & Auto-Clawback",
+    "summary": "Eliminate spreadsheet errors with automated, profit-based commission, tiered rewards, and automated clawbacks.",
+    "version": "18.0.1.0.0",
+    "category": "Sales/Sales",
+    "author": "FoxPink",
+    "website": "https://foxpink.netlify.app/",
+    "license": "OPL-1",
+    "price": 189.00,
+    "currency": "USD",
+    "depends": ["sale_management", "stock_account", "portal"],
+    "data": [
+        "security/commission_security.xml",
+        "security/ir.model.access.csv",
+        "data/commission_sequence.xml",
+        "views/commission_plan_views.xml",
+        "views/commission_ledger_views.xml",
+        "views/commission_period_views.xml",
+        "views/commission_portal_templates.xml",
+        "views/account_move_views.xml",
+        "data/ir_cron_data.xml",
+    ],
+    "images": [
+        "static/description/banner.png",
+        "static/description/screenshot_dashboard.png",
+        "static/description/screenshot_portal.png",
+        "static/description/screenshot_tier_plan.png",
+    ],
+    "installable": True,
+    "application": True,
+    "auto_install": False,
+}

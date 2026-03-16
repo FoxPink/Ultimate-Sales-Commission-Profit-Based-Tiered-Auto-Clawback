@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_commission_plan_user,access.commission.plan.user,model_commission_plan,advanced_sales_commission.group_commission_user,1,0,0,0
+access_commission_plan_manager,access.commission.plan.manager,model_commission_plan,advanced_sales_commission.group_commission_manager,1,1,1,1
+access_commission_plan_tier_user,access.commission.plan.tier.user,model_commission_plan_tier,advanced_sales_commission.group_commission_user,1,0,0,0
+access_commission_plan_tier_manager,access.commission.plan.tier.manager,model_commission_plan_tier,advanced_sales_commission.group_commission_manager,1,1,1,1
+access_commission_period_user,access.commission.period.user,model_commission_settlement_period,advanced_sales_commission.group_commission_user,1,0,0,0
+access_commission_period_manager,access.commission.period.manager,model_commission_settlement_period,advanced_sales_commission.group_commission_manager,1,1,1,1
+access_commission_ledger_user,access.commission.ledger.user,model_commission_ledger,advanced_sales_commission.group_commission_user,1,0,0,0
+access_commission_ledger_manager,access.commission.ledger.manager,model_commission_ledger,advanced_sales_commission.group_commission_manager,1,1,1,1
+access_commission_ledger_portal,access.commission.ledger.portal,model_commission_ledger,base.group_portal,1,0,0,0

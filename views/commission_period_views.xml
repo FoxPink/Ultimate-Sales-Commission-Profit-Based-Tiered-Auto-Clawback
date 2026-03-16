@@ -1,0 +1,67 @@
+<odoo>
+    <record id="view_commission_period_tree" model="ir.ui.view">
+        <field name="name">commission.period.tree</field>
+        <field name="model">commission.settlement.period</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="state"/>
+                <field name="amount_accrued"/>
+                <field name="amount_payable"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_commission_period_form" model="ir.ui.view">
+        <field name="name">commission.period.form</field>
+        <field name="model">commission.settlement.period</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open" string="Open" type="object" invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_lock" string="Lock" type="object" invisible="state != 'open'" class="btn-primary"/>
+                    <button name="action_export_payout" string="Export Payout" type="object" invisible="state == 'draft'"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,locked"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <group>
+                        <field name="amount_accrued" readonly="1"/>
+                        <field name="amount_payable" readonly="1"/>
+                        <field name="ledger_count" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Ledgers">
+                            <field name="ledger_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="salesperson_id"/>
+                                    <field name="gross_profit"/>
+                                    <field name="commission_amount"/>
+                                    <field name="state"/>
+                                    <field name="is_clawback"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_commission_period" model="ir.actions.act_window">
+        <field name="name">Settlement Periods</field>
+        <field name="res_model">commission.settlement.period</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_commission_period" name="Settlement Periods" parent="menu_commission_root" action="action_commission_period" sequence="20" groups="advanced_sales_commission.group_commission_manager"/>
+</odoo>
